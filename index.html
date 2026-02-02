@@ -3716,7 +3716,9 @@ body.embed .simShell, body.embed .simPanel{display:none !important;}
 </div>
 </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+
 
 /**********************
  * StudyPulse (Merged build)
@@ -3724,6 +3726,13 @@ body.embed .simShell, body.embed .simPanel{display:none !important;}
  **********************/
 const LS_KEY = "studytrack_v5";
 const $ = (id)=>document.getElementById(id);
+// ===== Supabase (browser-safe) =====
+// Use ONLY the Publishable key (sb_publishable_...), never the secret key.
+const SUPABASE_URL = https://dlrsyefsjlhokbtlupwz.supabase.co;
+const SUPABASE_ANON_KEY = sb_publishable_v74m_5bLelbAVpbbiV7rvQ_ylzkquLz;
+
+const supa = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 const clamp = (v,min,max)=>{ v = Number(v); if(!Number.isFinite(v)) return min; return Math.max(min, Math.min(max, v)); };
 const todayKey = ()=> new Date().toISOString().slice(0,10);
 const now = ()=> Date.now();
